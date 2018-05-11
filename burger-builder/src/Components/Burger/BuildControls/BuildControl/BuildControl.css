@@ -1,0 +1,13 @@
+.BuildControl{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 5px 0;
+}
+
+.BuildControl button{
+    cursor: pointer;
+    padding: 5px;
+    margin : 0 5px;
+    width : 40px;
+}
