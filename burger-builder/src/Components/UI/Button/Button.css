@@ -1,0 +1,18 @@
+.Button{
+    padding : 10px;
+    margin : 10px auto;
+    background : blue;
+    color : #fff;
+    font-size: 20px;
+    border : none;
+    border-radius: 10px;
+    cursor : pointer;
+}
+
+.Danger{
+    background : red;
+}
+
+.Success{
+    background : green;
+}
