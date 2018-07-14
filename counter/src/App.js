@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
 import CounterControl from './components/CounterControls/CounterControl';
 import CounterOutput from './components/CounterOutput/CounterOutput';
+import { INC, DEC } from './store/actionTypes';
 
 class App extends Component {
-
-  state = {
-    counter: 0
-  };
-
   render() {
     return (
       <div className="App">
-        <CounterOutput counterValue={this.state.counter}/>
-        <CounterControl label="Increment" clicked={()=>this.setState({counter: this.state.counter + 1})}/>
-        <CounterControl label="Decrement" clicked={()=>this.setState({counter: this.state.counter - 1})}/>
+        <CounterOutput counterValue={this.props.counter}/>
+        <CounterControl label="Increment" clicked={this.props.increment}/>
+        <CounterControl label="Decrement" clicked={this.props.decrement}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    counter: state.counter
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    increment: ()=>dispatch({type: INC}),
+    decrement: ()=>dispatch({type: DEC})
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
